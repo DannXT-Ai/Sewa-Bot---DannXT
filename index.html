@@ -71,6 +71,22 @@ button:hover {
   background-size: cover;
   opacity: 0.05;
 }
+.flowers {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background: url('https://i.imgur.com/W1pC9Ib.png');
+  animation: fall 20s linear infinite;
+  opacity: 0.15;
+  z-index: 0;
+}
+@keyframes fall {
+  0% { background-position: 0 -100%; }
+  100% { background-position: 0 100%; }
+}
 .burst-heart {
   position: absolute;
   color: #ff4d88;
@@ -81,27 +97,40 @@ button:hover {
   0% { opacity: 1; transform: scale(1) translate(0, 0); }
   100% { opacity: 0; transform: scale(3) translateY(-100px); }
 }
+.footer-note {
+  font-size: 1.2em;
+  color: #ff69b4;
+  margin-top: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
 
   </style>
 </head>
 <body>
   <div class="hearts"></div>
+  <div class="flowers"></div>
   <div class="message-box">
     <div class="emoji">🐰💖</div>
     <h1 id="greeting">Hai Diann!</h1>
     <p id="kataManis"></p>
   </div>
   <button onclick="getUcapan(); playAudio();">💬 Tampilkan Ucapan</button>
-  <button onclick="tampilkanKataManis(); ledakkanLove();">🍬 Kata-Kata Manis</button>  <audio id="cuteAudio">
+  <button onclick="tampilkanKataManis(); ledakkanLove();">🍬 Kata-Kata Manis</button>  <div class="footer-note">ini dari Dann khusus buat kamu 💝</div>  <!-- Suara tombol -->  <audio id="cuteAudio">
     <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
     Your browser does not support the audio element.
+  </audio>  <!-- Musik latar belakang -->  <audio id="bgm" autoplay loop>
+    <source src="https://cdn.bazehits.com/music/uploads/2024/03/Arctic_Monkeys_-_I_Wanna_Be_Yours-BAZEHITS.COM.mp3" type="audio/mpeg" />
   </audio>  <script>
     const kataManisList = [
       "Kamu itu kayak gula, bikin semua jadi manis 💕",
       "Diann, senyummu itu penyemangat aku tiap hari 😍",
       "Kalau ada lomba tersayang, kamu juaranya 🏆💖",
       "Kamu manis banget, kayak es krim stroberi 🍓",
-      "Di mataku, kamu selalu spesial ✨💘"
+      "Di mataku, kamu selalu spesial ✨💘",
+      "Kalau kamu senyum, dunia jadi cerah 🌞",
+      "Aku bersyukur banget bisa kenal kamu 💝",
+      "Kamu lucu kayak kelinci kesasar 🐰"
     ];
 
     function getUcapan() {
